@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+int main() {
+   
+    float hoursWorked, hourlyWage;
+    float grossPay, taxes, netPay;
+    float overtimePay = 0.0, regularPay = 0.0;
+    float tax1, tax2;
+
+   
+    printf("Enter hours worked in a week: ");
+    scanf("%f", &hoursWorked);
+
+    printf("Enter hourly wage: $");
+    scanf("%f", &hourlyWage);
+
+    
+    if (hoursWorked <= 40) {
+        regularPay = hoursWorked * hourlyWage;
+        grossPay = regularPay;
+    } else {
+        // Overtime pay calculation
+        regularPay = 40 * hourlyWage; // Regular pay for first 40 hours
+        overtimePay = (hoursWorked - 40) * (1.5 * hourlyWage); // Time and a half for overtime hours
+        grossPay = regularPay + overtimePay;
+    }
+
+    
+    if (grossPay <= 600) {
+        tax1 = grossPay * 0.15;
+    } else {
+        tax1 = 600 * 0.15;
+        tax2 = (grossPay - 600) * 0.20; // 20% tax on the remaining amount
+        taxes = tax1 + tax2;
+    }
+
+    
+    netPay = grossPay - taxes;
+
+   
+    printf("\nGross Pay: $%.2f\n", grossPay);
+    printf("Taxes: $%.2f\n", taxes);
+    printf("Net Pay: $%.2f\n", netPay);
+
+    return 0;
+}
