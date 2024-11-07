@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main() {
+   
+    int scores[2][2] = {
+        {85, 90}, 
+        {78, 88}  
+    };
+
+  
+    printf("Elements of the scores array:\n");
+
+    // Outer loop for rows (2 rows)
+    for (int i = 0; i < 2; i++) {
+        
+        for (int j = 0; j < 2; j++) {
+           
+            printf("scores[%d][%d] = %d\n", i, j, scores[i][j]);
+        }
+    }
+
